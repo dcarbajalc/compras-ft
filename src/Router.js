@@ -5,7 +5,8 @@ import Home from './Home';
 import Inicio from './Inicio';
 import Roles from './components/Rutas/Roles';
 import MenuxRol from './components/Rutas/MenuxRol'
-//import ABCUsuarios from './components/Usuarios/ABC';
+import Password from './components/Rutas/Password'
+import Users from './components/Rutas/Users'
 
 const Router = () => (
     <Switch> 
@@ -16,6 +17,9 @@ const Router = () => (
     <Route exact path="/inicio" component={Inicio}/>
     <Route exact path="/roles" component={Roles}/>
     <Route exact path='/menurol' component = {MenuxRol}/>
+    <Route exact path='/mipass' component = {Password}/>
+    <Route exact path='/passus' component = {Password}/>
+    <Route exact path='/usuarios' component = {Users}/>
     </Switch>
 )
 

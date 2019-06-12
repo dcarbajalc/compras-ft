@@ -9,7 +9,6 @@ import Session from '../Common/session/Session';
 
 class Roles extends Component {
     state = {
-      
         roles:[],
         showSpinner: true,
         edit: [],
@@ -20,8 +19,8 @@ class Roles extends Component {
   
 componentWillMount(){
 this.getRoles();
-
 }
+
 getRoles =() =>{
 obtieneRoles()
 .then (roles =>{

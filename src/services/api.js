@@ -19,9 +19,7 @@ export const obtieneUsuario = (num) => {
         res.data 
     )
     .catch(error => {
-    
-        throw error.response.data;
-        
+        throw error.response.data;    
     })
 };
 
@@ -110,8 +108,6 @@ export const obtieneMenus =(token) => {
 
 export const getMenuRol = (perfil) =>{
     return axios.get(`${base_url}/menuxrol`,
-   // `perfil=${perfil.perfil}`, 
-    
     {headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         "cache-control": "no-cache",
@@ -125,18 +121,6 @@ export const getMenuRol = (perfil) =>{
 };
 
 export const escribeMenuRol = (informacion)=>{
-    /*
-    return axios.post(`${base_url}/menuxrol/edit`,
-    informacion.datos,
-    {headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "cache-control": "no-cache",
-        'TOKEN': TOKEN,
-        'USER':USER,
-        'PERFIL':informacion.perfil
-    }}
-)
-*/
 return axios({
     method: 'post',
     url: `${base_url}/menuxrol/edit`,
@@ -152,4 +136,51 @@ return axios({
   })
 .then (res => res.data)
 .catch (error=> {throw error.response.data})  
+};
+
+export const cambiaMiPass =(data)=>{
+    return axios({
+        method:'post',
+        url: `${base_url}/password/mipass`,
+        headers: {
+                 "Content-Type": "application/json",
+                  "cache-control": "no-cache",
+                  'TOKEN': TOKEN,
+                  'USER':USER
+              },
+        data: data
+    })
+.then (res => res.data)
+.catch (error=> {throw error.response.data})  
+};
+
+
+export const cambiaOtroPass = (data)=>{
+    return axios({
+        method:'post',
+        url: `${base_url}/password/otropass`,
+        headers: {
+            //      "Content-Type": "application/x-www-form-urlencoded",
+                  "cache-control": "no-cache",
+                  'TOKEN': TOKEN,
+                  'USER':USER
+              },
+        data: data
+    })
+.then (res => res.data)
+.catch (error=> {throw error.response.data})  
+};
+
+export const obtieneUsuarios = () =>{
+    return axios({
+        method:'get',
+        url: `${base_url}/usuarios`,
+        headers: {
+                  "cache-control": "no-cache",
+                  'TOKEN': TOKEN,
+                  'USER':USER
+              }
+    })
+    .then (res => res.data)
+    .catch (error=> {throw error.response.data})    
 }
